@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Panel - Dilipkumar Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-container { max-width: 400px; margin: 60px auto; padding: 30px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9; }
+    .admin-actions { margin-top: 20px; }
+    .admin-actions button { margin: 5px 0; width: 100%; }
+    .error-msg { color: red; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2 class="center-title">Admin Panel</h2>
+    <div id="login-section">
+      <form id="admin-login-form" autocomplete="off">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+        <button type="submit">Login</button>
+        <div class="error-msg" id="error-msg"></div>
+      </form>
+    </div>
+    <div id="admin-actions" style="display:none;">
+      <h3>Welcome, Admin!</h3>
+      <div class="admin-actions">
+        <button onclick="alert('Add Project clicked')">Add Project</button>
+        <button onclick="alert('Edit Achievements clicked')">Edit Achievements</button>
+        <button onclick="alert('Update Skills clicked')">Update Skills</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById('admin-login-form');
+    const errorMsg = document.getElementById('error-msg');
+    const loginSection = document.getElementById('login-section');
+    const adminActions = document.getElementById('admin-actions');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      if (username === 'admin' && password === '1234') {
+        loginSection.style.display = 'none';
+        adminActions.style.display = 'block';
+        errorMsg.textContent = '';
+      } else {
+        errorMsg.textContent = 'Invalid username or password!';
+      }
+    });
+
+    function logout() {
+      adminActions.style.display = 'none';
+      loginSection.style.display = 'block';
+      form.reset();
+    }
+  </script>
+</body>
+</html>
