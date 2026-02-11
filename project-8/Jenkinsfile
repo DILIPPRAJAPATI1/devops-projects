@@ -14,7 +14,7 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
-                sh "docker build -t $IMAGE_NAME:latest app"
+                sh "docker build -t $IMAGE_NAME:latest project-8/app"
             }
         }
 
@@ -26,8 +26,8 @@ pipeline {
 
         stage("Deploy to Kubernetes") {
             steps {
-                sh "kubectl apply -f k8s/deployment.yaml"
-                sh "kubectl apply -f k8s/service.yaml"
+                sh "kubectl apply -f project-8/ k8s/deployment.yaml"
+                sh "kubectl apply -f project-8/k8s/service.yaml"
             }
         }
     }
