@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project9-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project9
+  template:
+    metadata:
+      labels:
+        app: project9
+    spec:
+      containers:
+      - name: project9-container
+        image: dilip122390/project9-webapp:latest
+        ports:
+        - containerPort: 80

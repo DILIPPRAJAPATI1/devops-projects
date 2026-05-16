@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "dilip122390/project9-webapp"
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                docker build -t $IMAGE_NAME:$BUILD_NUMBER project-9/app
+                '''
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                sh '''
+                docker push $IMAGE_NAME:$BUILD_NUMBER
+                '''
+            }
+        }
+
+        stage('Update Kubernetes Deployment') {
+            steps {
+                sh '''
+                kubectl set image deployment/project9-deployment project9-container=$IMAGE_NAME:$BUILD_NUMBER
+                '''
+            }
+        }
+    }
+}

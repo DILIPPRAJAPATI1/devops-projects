@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dilipkumar Prajapat - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="topbar">
+    <div class="brand">Dilipkumar</div>
+    <nav class="nav-right">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <section id="home" class="header-section clearfix">
+      <div class="name-area">
+        <h1>Dilipkumar Prajapat</h1>
+        <input class="title-input" type="text" value="Aspiring DevOps Engineer" readonly>
+      </div>
+      <div class="photo-area">
+        <img src="heroimage.jpg" alt="Profile photo">
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="band about-band">
+      <h2 class="center-title">About Me</h2>
+      <div class="about-row clearfix">
+        <div class="bio-box box-left">
+          <label class="small-title">Bio</label>
+          <div class="bio-rect">
+            Passionate IT student aiming to become a DevOps engineer.
+            Interested in automation, cloud, and software development.
+            Always eager to learn new technologies and grow in the IT field.
+          </div>
+        </div>
+
+        <div id="skills" class="skills-box box-right">
+          <label class="small-title">Skills</label>
+          <div class="skills-grid">
+            <div class="skill">C</div>
+            <div class="skill">C++</div>
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">SQL</div>
+            <div class="skill">MS Office</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <h2 class="center-title">Education</h2>
+      <div class="education-card">
+        <p><strong>B.Tech in Information Technology</strong></p>
+        <p>Marwadi University, Rajkot</p>
+        <p>Semester: 5th</p>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section">
+      <h2 class="center-title">Achievements</h2>
+      <div class="projects-row clearfix">
+        <div class="project-card">
+          <img src="aws.png" alt="AWS Certificate" class="project-image">
+          <div class="project-bottom">AWS Cloud Certificate</div>
+        </div>
+        <div class="project-card">
+          <img src="docker.png" alt="Docker Certificate" class="project-image">
+          <div class="project-bottom">Docker Essentials</div>
+        </div>
+        <div class="project-card">
+          <img src="linux.jpg" alt="Linux Certificate" class="project-image">
+          <div class="project-bottom">Linux Fundamentals</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2 class="center-title">Projects</h2>
+      <div class="projects-row clearfix">
+        <div class="project-card">
+          <img src="weather.jpg" alt="Weather App Screenshot" class="project-image">
+          <div class="project-bottom">Weather App</div>
+        </div>
+        <div class="project-card">
+          <img src="portfolio.jpg" alt="Portfolio Screenshot" class="project-image">
+          <div class="project-bottom">Portfolio Website</div>
+        </div>
+        <div class="project-card">
+          <img src="library.jpg" alt="Library Management Screenshot" class="project-image">
+          <div class="project-bottom">Library Management System</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h2 class="center-title">Experience</h2>
+      <div class="experience-card">
+        Internship - Web Developer. Worked on designing banners and building simple web applications. Duration: 2 months.
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="band contact-band">
+      <h2 class="center-title">Contact Me</h2>
+      <div class="contact-row clearfix">
+        <div class="contact-left box-left">
+          <label class="small-title">Get In Touch</label>
+          <form action="mailto:dilipprajapati98256@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="email" name="email" placeholder="Email"><br>
+            <textarea name="message" rows="4" placeholder="Message"></textarea><br>
+            <button class="send-btn" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="contact-right box-right">
+          <label class="small-title">Connect With Me</label>
+          <div class="connect-list">
+            <div class="connect-row">• LinkedIn</div>
+            <div class="connect-row">• GitHub</div>
+            <div class="connect-row">• dilipprajapati98256@gmail.com</div>
+          </div>
+          <a class="cv-btn" href="cv.pdf">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- container -->
+<script>
+  // Bootstrap 5 form validation
+  (function() {
+    'use strict';
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        alert('Message sent successfully!');
+      }
+      form.classList.add('was-validated');
+    }, false);
+  })();
+</script>
+</body>
+</html>
