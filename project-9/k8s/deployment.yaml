@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: project9-container
-        image: dilip122390/project9-webapp:latest
+        image: dilip122390/project9-webapp:4
         ports:
         - containerPort: 80
