@@ -21,12 +21,14 @@ pipeline {
         }
 
         stage('Deploy to EC2') {
-            steps {
-                sh """
-                ssh -o StrictHostKeyChecking=no ubuntu@$EC2_IP '
-                    docker stop project10-container || true &&
-                    docker rm project10-container || true &&
-                    docker run -d --name project10-container -p 3000:3000 project10
+           steps {
+              sh """
+              docker save project10 | bzip2 | ssh -o StrictHostKeyChecking=no ubuntu@$EC2_IP 'bunzip2 | docker load'
+
+        ssh -o StrictHostKeyChecking=no ubuntu@$EC2_IP '
+            docker stop project10-container || true &&
+            docker rm project10-container || true &&
+            docker run -d --name project10-container -p 3000:3000 project10
                 '
                 """
             }
